@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 # ═══════════════════════════════════════════════════════
 # CONFIGURACIÓN DE PÁGINA
 # ═══════════════════════════════════════════════════════
-st.set_page_config(page_title="Métodos Numéricos", layout="wide")
+st.set_page_config(page_title="Métodos Numéricos NANCY ANAKALY DELGADO GARCIA", layout="wide")
 
 st.markdown("""
     <style>
@@ -392,4 +392,5 @@ if metodo == "Newton-Raphson":
 
         except Exception as e:
             st.error(f"Error al calcular: {e}")
+
 
