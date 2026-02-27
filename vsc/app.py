@@ -146,12 +146,17 @@ if metodo == "Euler Mejorado":
 
     col1, col2 = st.columns(2)
     with col1:
-        funcion_input = st.text_input("f(x, y):", "x + y")
-        x0_orig = st.number_input("x₀  (valor inicial de x):", value=0.0, format="%.6f")
-        y0_orig = st.number_input("y₀  (valor inicial de y):", value=1.0, format="%.6f")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>f(x, y):</span>", unsafe_allow_html=True)
+        funcion_input = st.text_input("", "x + y", key="euler_fxy", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>x₀ (valor inicial de x):</span>", unsafe_allow_html=True)
+        x0_orig = st.number_input("", value=0.0, format="%.6f", key="euler_x0", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>y₀ (valor inicial de y):</span>", unsafe_allow_html=True)
+        y0_orig = st.number_input("", value=1.0, format="%.6f", key="euler_y0", label_visibility="collapsed")
     with col2:
-        xf = st.number_input("x final:", value=1.0, format="%.6f")
-        h  = st.number_input("h  (tamaño de paso):", value=0.1, min_value=1e-10, format="%.6f")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>x final:</span>", unsafe_allow_html=True)
+        xf = st.number_input("", value=1.0, format="%.6f", key="euler_xf", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>h (tamaño de paso):</span>", unsafe_allow_html=True)
+        h  = st.number_input("", value=0.1, min_value=1e-10, format="%.6f", key="euler_h", label_visibility="collapsed")
 
     try:
         x_sym, y_sym = sp.symbols('x y')
@@ -242,12 +247,17 @@ if metodo == "Runge-Kutta 4":
 
     col1, col2 = st.columns(2)
     with col1:
-        funcion_input = st.text_input("f(x, y):", "x + y")
-        x0_orig = st.number_input("x₀  (valor inicial de x):", value=0.0, format="%.6f")
-        y0_orig = st.number_input("y₀  (valor inicial de y):", value=1.0, format="%.6f")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>f(x, y):</span>", unsafe_allow_html=True)
+        funcion_input = st.text_input("", "x + y", key="rk4_fxy", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>x₀ (valor inicial de x):</span>", unsafe_allow_html=True)
+        x0_orig = st.number_input("", value=0.0, format="%.6f", key="rk4_x0", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>y₀ (valor inicial de y):</span>", unsafe_allow_html=True)
+        y0_orig = st.number_input("", value=1.0, format="%.6f", key="rk4_y0", label_visibility="collapsed")
     with col2:
-        xf = st.number_input("x final:", value=1.0, format="%.6f")
-        h  = st.number_input("h  (tamaño de paso):", value=0.1, min_value=1e-10, format="%.6f")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>x final:</span>", unsafe_allow_html=True)
+        xf = st.number_input("", value=1.0, format="%.6f", key="rk4_xf", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>h (tamaño de paso):</span>", unsafe_allow_html=True)
+        h  = st.number_input("", value=0.1, min_value=1e-10, format="%.6f", key="rk4_h", label_visibility="collapsed")
 
     try:
         x_sym, y_sym = sp.symbols('x y')
@@ -345,12 +355,15 @@ if metodo == "Newton-Raphson":
 
     col1, col2 = st.columns(2)
     with col1:
-        funcion_input = st.text_input("f(x):", "x**3 - x - 2")
-        x0_orig = st.number_input("x₀  (valor inicial):", value=1.5, format="%.6f")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>f(x):</span>", unsafe_allow_html=True)
+        funcion_input = st.text_input("", "x**3 - x - 2", key="nr_fx", label_visibility="collapsed")
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>x₀ (valor inicial):</span>", unsafe_allow_html=True)
+        x0_orig = st.number_input("", value=1.5, format="%.6f", key="nr_x0", label_visibility="collapsed")
     with col2:
+        st.markdown("<span style='color:#1565C0;font-weight:bold;font-size:1.1rem'>x final (tolerancia):</span>", unsafe_allow_html=True)
         xf_tol = st.number_input(
-            "x final  (el método para cuando |xₙ₊₁ - xₙ| < este valor):",
-            value=1e-6, format="%.2e", min_value=1e-15, max_value=1.0
+            "", value=1e-6, format="%.2e", min_value=1e-15, max_value=1.0,
+            key="nr_tol", label_visibility="collapsed"
         )
 
     try:
