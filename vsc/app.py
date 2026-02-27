@@ -42,7 +42,7 @@ st.markdown("""
         label, .stNumberInput label, .stTextInput label {
             font-size: 1.25rem !important;
             font-weight: 700 !important;
-            color: #38bdf8 !important;
+            color: #1d4ed8 !important;
         }
 
         input[type="number"], input[type="text"] {
@@ -50,7 +50,7 @@ st.markdown("""
             padding: 0.6rem !important;
             background-color: #1e2535 !important;
             color: #ffffff !important;
-            border: 2px solid #38bdf8 !important;
+            border: 2px solid #1d4ed8 !important;
             border-radius: 10px !important;
         }
 
