@@ -16,69 +16,75 @@ st.markdown("""
         html, body, [class*="css"] {
             font-family: 'Exo 2', sans-serif;
             font-size: 1.15rem;
-            color: #ffffff;
+            color: #0d2d6e !important;
         }
 
-        h1 {
-            color: #facc15 !important;
-            font-size: 3rem !important;
+        h1, h2, h3, h4, h5, h6 {
+            color: #0d2d6e !important;
             font-weight: 900 !important;
-            letter-spacing: 3px;
-        }
-        h2 {
-            color: #facc15 !important;
-            font-size: 2rem !important;
-            font-weight: 700 !important;
-        }
-        h3 {
-            color: #fb923c !important;
-            font-size: 1.5rem !important;
         }
 
-        p, span, div {
-            color: #f1f5f9;
+        h1 { font-size: 2.2rem !important; letter-spacing: 2px; }
+        h2 { font-size: 1.8rem !important; }
+        h3 { font-size: 1.4rem !important; }
+
+        p, span, div, li, a {
+            color: #0d2d6e !important;
         }
 
-        label, .stNumberInput label, .stTextInput label {
-            font-size: 1.25rem !important;
-            font-weight: 700 !important;
-            color: #1d4ed8 !important;
+        /* Todos los textos de markdown */
+        .stMarkdown, .stMarkdown p, .stMarkdown span,
+        .stMarkdown div, [data-testid="stMarkdownContainer"] p,
+        [data-testid="stMarkdownContainer"] span {
+            color: #0d2d6e !important;
+            font-weight: 600;
         }
 
-        input[type="number"], input[type="text"] {
+        /* Labels de inputs */
+        label, .stNumberInput label, .stTextInput label,
+        .stSelectbox label, .stTextArea label {
             font-size: 1.2rem !important;
-            padding: 0.6rem !important;
-            background-color: #1e2535 !important;
-            color: #ffffff !important;
-            border: 2px solid #1d4ed8 !important;
-            border-radius: 10px !important;
+            font-weight: 800 !important;
+            color: #0d2d6e !important;
+        }
+
+        /* Caption y texto pequeño */
+        .stCaption, small {
+            color: #1565C0 !important;
+        }
+
+        /* Expander */
+        .streamlit-expanderHeader, [data-testid="stExpander"] summary {
+            color: #0d2d6e !important;
+            font-weight: 800 !important;
+            font-size: 1.1rem !important;
         }
 
         /* BOTONES GRANDES */
         div.stButton > button {
             width: 100%;
             padding: 1.2rem 2rem;
-            font-size: 1.5rem !important;
+            font-size: 1.4rem !important;
             font-weight: 900 !important;
             font-family: 'Exo 2', sans-serif !important;
             letter-spacing: 2px;
             border-radius: 14px;
             border: none;
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-            color: white;
+            background: linear-gradient(135deg, #1565C0, #0d47a1);
+            color: white !important;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 24px rgba(245,158,11,0.5);
+            box-shadow: 0 4px 24px rgba(21,101,192,0.4);
             margin-top: 0.8rem;
             text-transform: uppercase;
         }
         div.stButton > button:hover {
-            background: linear-gradient(135deg, #fbbf24, #f87171);
-            box-shadow: 0 8px 32px rgba(245,158,11,0.7);
+            background: linear-gradient(135deg, #1976D2, #1565C0);
+            box-shadow: 0 8px 32px rgba(21,101,192,0.6);
             transform: translateY(-3px);
         }
-        div.stButton > button:active {
-            transform: translateY(0px);
+        div.stButton > button p {
+            color: white !important;
         }
 
         .stDataFrame { border-radius: 10px; font-size: 1.05rem; }
