@@ -16,28 +16,33 @@ st.markdown("""
         html, body, [class*="css"] {
             font-family: 'Exo 2', sans-serif;
             font-size: 1.15rem;
+            color: #ffffff;
         }
 
         h1 {
-            color: #00d4ff !important;
+            color: #facc15 !important;
             font-size: 3rem !important;
             font-weight: 900 !important;
             letter-spacing: 3px;
         }
         h2 {
-            color: #00d4ff !important;
+            color: #facc15 !important;
             font-size: 2rem !important;
             font-weight: 700 !important;
         }
         h3 {
-            color: #a78bfa !important;
+            color: #fb923c !important;
             font-size: 1.5rem !important;
+        }
+
+        p, span, div {
+            color: #f1f5f9;
         }
 
         label, .stNumberInput label, .stTextInput label {
             font-size: 1.25rem !important;
             font-weight: 700 !important;
-            color: #e2e8f0 !important;
+            color: #38bdf8 !important;
         }
 
         input[type="number"], input[type="text"] {
@@ -45,7 +50,7 @@ st.markdown("""
             padding: 0.6rem !important;
             background-color: #1e2535 !important;
             color: #ffffff !important;
-            border: 2px solid #334155 !important;
+            border: 2px solid #38bdf8 !important;
             border-radius: 10px !important;
         }
 
@@ -59,17 +64,17 @@ st.markdown("""
             letter-spacing: 2px;
             border-radius: 14px;
             border: none;
-            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
             color: white;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 24px rgba(14,165,233,0.5);
+            box-shadow: 0 4px 24px rgba(245,158,11,0.5);
             margin-top: 0.8rem;
             text-transform: uppercase;
         }
         div.stButton > button:hover {
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
-            box-shadow: 0 8px 32px rgba(14,165,233,0.7);
+            background: linear-gradient(135deg, #fbbf24, #f87171);
+            box-shadow: 0 8px 32px rgba(245,158,11,0.7);
             transform: translateY(-3px);
         }
         div.stButton > button:active {
@@ -81,6 +86,29 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("MÉTODOS NUMÉRICOS NANCY ANAKALY DELGADO GARCIA")
+
+# ═══════════════════════════════════════════════════════
+# BOTÓN IR A CONFIGURACIÓN
+# ═══════════════════════════════════════════════════════
+with st.expander("⚙️ ABRIR CONFIGURACIÓN", expanded=False):
+    precision = st.number_input(
+        "Decimales de precisión:",
+        min_value=1, max_value=15, value=6, step=1
+    )
+    st.caption("Sintaxis Python/SymPy:")
+    st.caption("`sin(x)`, `cos(x)`, `exp(x)`, `log(x)`, `sqrt(x)`, `x**2`")
+
+# También en sidebar por si acaso
+with st.sidebar:
+    st.header("Configuración")
+    precision = st.number_input(
+        "Decimales de precisión:",
+        min_value=1, max_value=15, value=6, step=1,
+        key="precision_sidebar"
+    )
+    st.markdown("---")
+    st.caption("Sintaxis Python/SymPy:")
+    st.caption("`sin(x)`, `cos(x)`, `exp(x)`, `log(x)`, `sqrt(x)`, `x**2`")
 
 # ═══════════════════════════════════════════════════════
 # SELECCIÓN DE MÉTODO CON BOTONES
@@ -105,19 +133,6 @@ with col3:
 metodo = st.session_state.metodo
 st.markdown(f"**Método activo: `{metodo}`**")
 st.markdown("---")
-
-# ═══════════════════════════════════════════════════════
-# PRECISIÓN (sidebar)
-# ═══════════════════════════════════════════════════════
-with st.sidebar:
-    st.header("Configuración")
-    precision = st.number_input(
-        "Decimales de precisión:",
-        min_value=1, max_value=15, value=6, step=1
-    )
-    st.markdown("---")
-    st.caption("Sintaxis Python/SymPy:")
-    st.caption("`sin(x)`, `cos(x)`, `exp(x)`, `log(x)`, `sqrt(x)`, `x**2`")
 
 # ═══════════════════════════════════════════════════════
 # EULER MEJORADO
