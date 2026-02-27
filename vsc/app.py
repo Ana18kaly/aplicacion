@@ -17,7 +17,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("Métodos Numéricos")
+st.title("Métodos Numéricos NANCY ANAKALY DELGADO GARCIA")
 
 # ═══════════════════════════════════════════════════════
 # SIDEBAR
@@ -392,5 +392,6 @@ if metodo == "Newton-Raphson":
 
         except Exception as e:
             st.error(f"Error al calcular: {e}")
+
 
 
