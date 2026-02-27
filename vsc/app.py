@@ -80,7 +80,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("MÉTODOS NUMÉRICOS")
+st.title("🔢 MÉTODOS NUMÉRICOS")
 
 # ═══════════════════════════════════════════════════════
 # SELECCIÓN DE MÉTODO CON BOTONES
@@ -93,13 +93,13 @@ if "metodo" not in st.session_state:
     st.session_state.metodo = "Euler Mejorado"
 
 with col1:
-    if st.button("EULER MEJORADO", key="btn_euler"):
+    if st.button("📐 EULER MEJORADO", key="btn_euler"):
         st.session_state.metodo = "Euler Mejorado"
 with col2:
-    if st.button(" RUNGE-KUTTA 4", key="btn_rk4"):
+    if st.button("📐 RUNGE-KUTTA 4", key="btn_rk4"):
         st.session_state.metodo = "Runge-Kutta 4"
 with col3:
-    if st.button("NEWTON-RAPHSON", key="btn_newton"):
+    if st.button("📐 NEWTON-RAPHSON", key="btn_newton"):
         st.session_state.metodo = "Newton-Raphson"
 
 metodo = st.session_state.metodo
@@ -110,7 +110,7 @@ st.markdown("---")
 # PRECISIÓN (sidebar)
 # ═══════════════════════════════════════════════════════
 with st.sidebar:
-    st.header("Configuración")
+    st.header("⚙️ Configuración")
     precision = st.number_input(
         "Decimales de precisión:",
         min_value=1, max_value=15, value=6, step=1
@@ -124,7 +124,7 @@ with st.sidebar:
 # ═══════════════════════════════════════════════════════
 if metodo == "Euler Mejorado":
 
-    st.header("Euler Mejorado (Heun)")
+    st.header("📐 Euler Mejorado (Heun)")
     st.markdown(r"""
     $$k_1 = f(x_n,\ y_n) \qquad k_2 = f(x_n + h,\ y_n + h \cdot k_1) \qquad y_{n+1} = y_n + \frac{h}{2}(k_1 + k_2)$$
     """)
@@ -191,7 +191,7 @@ if metodo == "Euler Mejorado":
                     "k1 (pendiente inicial)": ["-"] + k1_vals,
                     "k2 (pendiente final)":   ["-"] + k2_vals,
                 })
-                st.subheader("Tabla de valores")
+                st.subheader("📋 Tabla de valores")
                 st.dataframe(tabla, use_container_width=True)
 
                 fig = go.Figure()
@@ -207,7 +207,7 @@ if metodo == "Euler Mejorado":
                     xaxis_title="x", yaxis_title="y(x)",
                     template="plotly_dark", hovermode="x unified"
                 )
-                st.subheader("Gráfica 2D")
+                st.subheader("📈 Gráfica 2D")
                 st.plotly_chart(fig, use_container_width=True)
 
         except Exception as e:
@@ -219,7 +219,7 @@ if metodo == "Euler Mejorado":
 # ═══════════════════════════════════════════════════════
 if metodo == "Runge-Kutta 4":
 
-    st.header("Runge-Kutta de Orden 4 (RK4)")
+    st.header("📐 Runge-Kutta de Orden 4 (RK4)")
     st.markdown(r"""
     $$k_1 = f(x_n,\ y_n) \quad k_2 = f\!\left(x_n+\tfrac{h}{2},\ y_n+\tfrac{h}{2}k_1\right) \quad k_3 = f\!\left(x_n+\tfrac{h}{2},\ y_n+\tfrac{h}{2}k_2\right) \quad k_4 = f(x_n+h,\ y_n+hk_3)$$
     $$y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$
@@ -284,7 +284,7 @@ if metodo == "Runge-Kutta 4":
                     x_vals.append(round(x0, int(precision)))
                     y_vals.append(round(y0, int(precision)))
 
-                st.success(f"{n} pasos  |  x: {x0_orig} → {round(x0, int(precision))}")
+                st.success(f"✅ {n} pasos  |  x: {x0_orig} → {round(x0, int(precision))}")
 
                 tabla = pd.DataFrame({
                     "i":   range(len(x_vals)),
@@ -295,7 +295,7 @@ if metodo == "Runge-Kutta 4":
                     "k3":  ["-"] + k3_vals,
                     "k4":  ["-"] + k4_vals,
                 })
-                st.subheader("Tabla de valores")
+                st.subheader("📋 Tabla de valores")
                 st.dataframe(tabla, use_container_width=True)
 
                 fig = go.Figure()
@@ -311,7 +311,7 @@ if metodo == "Runge-Kutta 4":
                     xaxis_title="x", yaxis_title="y(x)",
                     template="plotly_dark", hovermode="x unified"
                 )
-                st.subheader("Gráfica 2D")
+                st.subheader("📈 Gráfica 2D")
                 st.plotly_chart(fig, use_container_width=True)
 
         except Exception as e:
@@ -323,7 +323,7 @@ if metodo == "Runge-Kutta 4":
 # ═══════════════════════════════════════════════════════
 if metodo == "Newton-Raphson":
 
-    st.header("Newton-Raphson")
+    st.header("📐 Newton-Raphson")
     st.markdown(r"""
     $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
     """)
@@ -393,7 +393,7 @@ if metodo == "Newton-Raphson":
                     break
 
             if convergio:
-                st.success(f"Convergió en {len(pasos)} pasos  |  Raíz ≈ {round(x0, int(precision))}")
+                st.success(f"✅ Convergió en {len(pasos)} pasos  |  Raíz ≈ {round(x0, int(precision))}")
             else:
                 st.warning(f"⚠️ No convergió. Última aproximación: {round(x0, int(precision))}")
 
@@ -404,7 +404,7 @@ if metodo == "Newton-Raphson":
                 "f\'(xₙ)":    dfx_vals,
                 "|xₙ₊₁-xₙ|": error_vals,
             })
-            st.subheader("Tabla de pasos")
+            st.subheader("📋 Tabla de pasos")
             st.dataframe(tabla, use_container_width=True)
 
             fig_conv = go.Figure()
@@ -450,13 +450,13 @@ if metodo == "Newton-Raphson":
                 )
                 col1, col2 = st.columns(2)
                 with col1:
-                    st.subheader("Convergencia")
+                    st.subheader("📈 Convergencia")
                     st.plotly_chart(fig_conv, use_container_width=True)
                 with col2:
-                    st.subheader("f(x) y raíz")
+                    st.subheader("📈 f(x) y raíz")
                     st.plotly_chart(fig_fx, use_container_width=True)
             except Exception:
-                st.subheader("Convergencia")
+                st.subheader("📈 Convergencia")
                 st.plotly_chart(fig_conv, use_container_width=True)
 
         except Exception as e:
